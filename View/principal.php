@@ -23,6 +23,18 @@
     </style>
 </head>
 <body class="w3-light-grey">
+    <!-- PHP -->
+    <?php
+        //Inclui a classe Usuario da camada Model
+        include_once '../Model/Usuario.php';
+        //Se a sessão não tiver sido iniciada
+        if(!isset($_SESSION)) {
+            //Cria sessão
+            session_start();
+        }
+    ?>
+    <!-- Fim PHP -->
+
     <!-- Sidebar -->
     <nav class="w3-sidebar w3-bar-block w3-center w3-blue">
         <!-- Botão Home -->
@@ -76,18 +88,17 @@
             <!-- Cabeçalho -->
             <h2 class="w3-text-cyan">Dados Pessoais</h2>
             <!-- Formulário -->
-            <form action="" method="post"
+            <form action="../Controller/Navegacao.php" method="post"
                 class="w3-row w3-light-grey w3-text-blue w3-margin" style="width:70%">
                 <!-- ID - Não visível ao usuário -->
-                <input class="w3-input w3-border w3-round-large" name="txtID" type="hidden" value="">
+                <input class="w3-input w3-border w3-round-large" name="txtID" type="hidden" value="<?php echo unserialize($_SESSION['Usuario'])->getID();?>">
                 <!-- Nome -->
                 <div class="w3-row w3-section">
                     <div class="w3-col" style="width: 11%;">
                         <i class="w3-xxlarge fa-solid fa-user"></i>
                     </div>
                     <div class="w3-rest">
-                        <input class="w3-input w3-border w3-round-large" name="txtNome" type="text"
-                            placeholder="Nome Completo">
+                        <input class="w3-input w3-border w3-round-large" name="txtNome" type="text" placeholder="Nome Completo" value="<?php echo unserialize($_SESSION['Usuario'])->getNome();?>">
                     </div>
                 </div>
                 <!-- CPF -->
@@ -96,8 +107,7 @@
                         <i class="w3-xxlarge fa fa-drivers-license"></i>
                     </div>
                     <div class="w3-rest">
-                        <input class="w3-input w3-border w3-round-large" name="txtCPF" type="text"
-                            placeholder="CPF:  33333333333">
+                        <input class="w3-input w3-border w3-round-large" name="txtCPF" type="text" placeholder="CPF:  33333333333" value="<?php echo unserialize($_SESSION['Usuario'])->getCPF();?>">
                     </div>
                 </div>
                 <!-- Data -->
@@ -106,7 +116,7 @@
                         <i class="w3-xxlarge fa-regular fa-calendar-days"></i>
                     </div>
                     <div class="w3-rest">
-                        <input class="w3-input w3-border w3-round-large" name="txtEmail" type="date">
+                        <input class="w3-input w3-border w3-round-large" name="txtEmail" type="date" value="<?php echo unserialize($_SESSION['Usuario'])->getDataNascimento;?>">
                     </div>
                 </div>
                 <!-- Email -->
@@ -115,15 +125,13 @@
                         <i class="w3-xxlarge fa-solid fa-envelope"></i>
                     </div>
                     <div class="w3-rest">
-                        <input class="w3-input w3-border w3-round-large" name="txtEmail" type="text"
-                            placeholder="Email">
+                        <input class="w3-input w3-border w3-round-large" name="txtEmail" type="text" placeholder="Email" value="<?php echo unserialize($_SESSION['Usuario'])->getEmail();?>">
                     </div>
                 </div>
                 <!-- Botão de Cadastro -->
                 <div class="w3-row w3-section">
                     <div class="w3-center">
-                        <button name="btnAtualizar" class="w3-button w3-block w3-margin w3-blue w3-cell w3-round-large"
-                            style="width: 90%;">Atualizar</button>
+                        <button name="btnAtualizar" class="w3-button w3-block w3-margin w3-blue w3-cell w3-round-large" style="width: 90%;">Atualizar</button>
                     </div>
                 </div>
             </form>

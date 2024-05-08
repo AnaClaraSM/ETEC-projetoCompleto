@@ -1,6 +1,8 @@
 <?php
-    if(!isset($_SESSION))
-    {
+
+    //Se a sessão não tiver sido iniciada
+    if(!isset($_SESSION)) {
+        //Cria sessão
         session_start();
     }
 
