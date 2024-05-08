@@ -58,7 +58,25 @@
             else {
                 include_once "../View/atualizacaoNaoRealizada.php";
             }
-            
+
+            break;
+
+        case isset($_POST["btnLogin"]):
+            require_once "../Controller/UsuarioController.php";
+
+            $uController = new UsuarioController();
+
+            //Se o login foi realizado com sucesso
+            if ($uController->login($_POST["txtLogin"], $_POST["txtSenha"])) {
+                //Direciona à página principal
+                include_once "../View/principal.php";
+            }
+            //Do contrário
+            else {
+                //Direciona à página cadastroNaoRealizado
+                include_once "../View/cadastroNaoRealizado.php";
+            }
+
             break;
     }
 ?>

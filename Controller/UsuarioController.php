@@ -45,6 +45,25 @@ class UsuarioController {
         //Retorna o resultado da atualização
         return $r;
     }
+
+    //Método Login
+    public function login($cpf, $senha) {
+        //Inclui a classe Usuario da camada Model
+        require_once '../Model/Usuario.php'
+        //Cria uma instância da classe Usuario e popula seus atributos
+        $usuario = new Usuario();
+        //
+        $usuario->carregarUsuario($cpf);
+        $verSenha=$usuario->getSenha();
+        //Verifica se a senha digitada é igual à do parâmetro
+        if($senha==$verSenha) {
+            $_SESSION['Usuario'] = serialize($usuario);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 ?>
