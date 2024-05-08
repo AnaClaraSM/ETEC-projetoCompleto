@@ -27,7 +27,8 @@
                 $_POST["txtCPF"],
                 $_POST["txtEmail"],
                 $_POST["txtSenha"]
-            ))
+                )
+            )
             {
                 include_once "../View/cadastroRealizado.php";                
             }
@@ -35,6 +36,29 @@
                 include_once "../View/cadastroNaoRealizado.php";
             }
 
+            break;
+        
+        //Atualizar
+        case isset($_POST["btnAtualizar"]):
+            require_once "../Controller/UsuarioController.php";
+
+            $uController = new UsuarioController();
+
+            if ($uController->atualizar (
+                    $_POST["txtID"],
+                    $_POST["txtNome"],
+                    $_POST["txtCPF"],
+                    $_POST["txtEmail"],
+                    date("Y-m-d", strtotime($_POST["txtData"]))
+                )
+            )
+            {
+                include_once "../View/atualizacaoRealizada.php";
+            }
+            else {
+                include_once "../View/atualizacaoNaoRealizada.php";
+            }
+            
             break;
     }
 ?>
