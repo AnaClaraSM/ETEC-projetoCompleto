@@ -61,6 +61,7 @@
 
             break;
 
+        //Login
         case isset($_POST["btnLogin"]):
             require_once "../Controller/UsuarioController.php";
 
@@ -74,6 +75,28 @@
             //Do contrário
             else {
                 //Direciona à página cadastroNaoRealizado
+                include_once "../View/cadastroNaoRealizado.php";
+            }
+
+            break;
+        
+        //Adicionar Formação Acadêmica
+        case isset($_POST["btnAddFormacao"]):
+            require_once "../Controller/FormacaoAcadController.php";
+            include_once "../Model/Usuario.php"
+
+            $fController = new FormacaoAcadController();
+
+            if ($fController->inserir(
+                date("Y-m-d",strtotime($_POST["txtInicioFA"])),
+                date("Y-m-d", strtotime($_POST["txtFimFA"])),
+                $_POST["txtDescFA"],
+                unserialize($_SESSION["Usuario"])->getID()
+                ) != false
+            ) {
+                include_once "../View/cadastroRealizado.php";
+            }
+            else {
                 include_once "../View/cadastroNaoRealizado.php";
             }
 

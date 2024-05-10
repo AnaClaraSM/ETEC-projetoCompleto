@@ -27,6 +27,13 @@
     <?php
         //Inclui a classe Usuario da camada Model
         include_once '../Model/Usuario.php';
+        //Inclui a classe FormacaoAcadController da camada Controller
+        include_once '../Controller/FormacaoAcadController.php';
+        //Inclui a classe ExperienciaProfissionalController da camada Controller
+        include_once '../Controller/ExperienciaProfissionalController.php';
+        //Inclui a classe OutrasFormacoesController da camada Controller
+        include_once '../Controller/OutrasFormacoesController.php';
+
         //Se a sessão não tiver sido iniciada
         if(!isset($_SESSION)) {
             //Cria sessão
@@ -49,7 +56,7 @@
             <i class="fa-solid fa-address-book w3-xxlarge"></i>
             <p>Dados Pessoais</p>
         </a>
-        <!-- Botão Formação -->
+        <!-- Botão Formação Acadêmica -->
         <a href="#formacao"
             class="w3-bar-item w3-button w3-block w3-cell w3-hover-light w3-hover-text-cyan w3-text-light-grey">
             <i class="fa-solid fa-graduation-cap w3-xxlarge"></i>
@@ -61,7 +68,7 @@
             <i class="fa-solid fa-briefcase w3-xxlarge"></i>
             <p>Experiência Profissional</p>
         </a>
-        <!-- Botão Formação -->
+        <!-- Botão Outras Formações -->
         <a href="#outrasFormacoes"
             class="w3-bar-item w3-button w3-block w3-cell w3-hover-light w3-hover-text-cyan w3-text-light-grey">
             <i class="fa-solid fa-certificate w3-xxlarge"></i>
@@ -143,7 +150,7 @@
             <!-- Cabeçalho -->
             <h2 class="w3-text-cyan">Formação Acadêmica</h2>
             <!-- Formulário -->
-            <form action="" method="post"
+            <form action="../Controller/FormacaoAcadController.php" method="post"
                 class="w3-row w3-light-grey w3-text-blue w3-margin" style="width:70%">
                 <div class="w3-row w3-center">
                     <div class="w3-col" style="width: 50%;">
