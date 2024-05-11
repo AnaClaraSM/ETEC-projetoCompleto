@@ -82,24 +82,105 @@
         
         //Adicionar Formação Acadêmica
         case isset($_POST["btnAddFormacao"]):
+            //Inclui a classe FormacaoAcadController da camada Controller
             require_once "../Controller/FormacaoAcadController.php";
-            include_once "../Model/Usuario.php"
+            //Inclui a classe Usuario da camada Model
+            include_once "../Model/Usuario.php";
 
-            $fController = new FormacaoAcadController();
+            //Cria uma nova instância da classe FormacaoAcadController
+            $fAController = new FormacaoAcadController();
 
-            if ($fController->inserir(
+            //Verifica se o resultado da inserção (acesso ao método inserir do objeto com o id do usuário e os dados da formação postados através do formulário como parâmetros) foi positivo
+            if ($fAController->inserir(
                 date("Y-m-d",strtotime($_POST["txtInicioFA"])),
                 date("Y-m-d", strtotime($_POST["txtFimFA"])),
                 $_POST["txtDescFA"],
                 unserialize($_SESSION["Usuario"])->getID()
                 ) != false
             ) {
-                include_once "../View/cadastroRealizado.php";
+                //Se sim, direciona para a página informacaoInserida
+                include_once "../View/informacaoInserida.php";
             }
             else {
-                include_once "../View/cadastroNaoRealizado.php";
+                //Se não, direciona para a página operacaoNaoRealizada
+                include_once "../View/operacaoNaoRealizada.php";
             }
 
             break;
+
+        //Excluir Formação Acadêmica
+        case isset($_POST["btnExcluirFA"]):
+            //Inclui a classe FormacaoAcadController da camada Controller
+            require_once "../Controller/FomacaoAcadController.php";
+            //Inclui a classe Usuario da camada Model
+            include_once "../Model/Usuario.php";
+
+            //Cria uma nova instância da classe FormacaoAcadController
+            $fAController = new FormacaoAcadController();
+
+            //Verifica se o resultado da remoção (acesso ao método remover do objeto com o id do resgistro da formação como parâmetro) foi positivo
+            if($fAController->remover($_POST["idFA"]) == true) {
+                //Se sim, direciona para a página informacaoExcluida
+                include_once "../View/informacaoExcluida.php";
+            }
+            else {
+                //Se não, direciona para a página operacaoNaoRealizada
+                include_once "../View/operacaoNaoRealizada.php";
+            }
+
+            break;
+
+        //Adicionar Experiência Profissional
+        case isset($_POST["btnAddEP"]):
+            //Inclui a classe ExperienciaProfissionalController da camada Controller
+            require_once "../Controller/ExperienciaProfissionalController.php";
+            //Inclui a classe Usuario da camada Model
+            include_once "../Model/Usuario.php";
+
+            //Cria uma nova instância da classe ExperienciaProfissionalController
+            $ePController = new ExperienciaProfissionalController();
+
+            //Verifica se o resultado da inserção (acesso ao método inserir do objeto com o id do usuário e os dados da formação postados através do formulário como parâmetros) foi positivo
+            if ($ePController->inserir(
+                date("Y-m-d", strtotime($_POST["txtInicioEP"])), 
+                date("Y-m-d", strtotime($_POST["txtFimEP"])), 
+                $_POST["txtEmpEP"], 
+                $_POST["txtDescEP"], 
+                unserialize($_SESSION["Usuario"])->getID()
+                ) != false
+            ) {
+                //Se sim, direciona para a página informacaoInserida
+                include_once "../View/informacaoInserida.php";
+            }
+            else {
+                //Se não, direciona para a página operacaoNaoRealizada
+                include_once "../View/operacaoNaoRealizada.php";
+            }
+
+            break;
+
+        //Excluir Experiência Profissional
+        case isset ($_POST["btnExcluirEP"]):            
+            //Inclui a classe ExperienciaProfissionalController da camada Controller
+            require_once "../Controller/ExperienciaProfissionalController.php";
+            //Inclui a classe Usuario da camada Model
+            include_once "../Model/Usuario.php";
+
+            //Cria uma nova instância da classe ExperienciaProfissionalController
+            $ePController = new ExperienciaProfissionalController();
+
+            //Verifica se o resultado da remoção (acesso ao método remover do objeto com o id do resgistro da formação como parâmetro) foi positivo
+            if ($epControler->remover($_POST["idEP"]) == true) {
+                //Se sim, direciona para a página informacaoExcluida
+                include_once "../View/informacaoExcluida.php";
+            }
+            else {
+                //Se não, direciona para a página operacaoNaoRealizada
+                include_once "../View/operacaoNaoRealizada.php";
+            }
+
+            break;
+
+
     }
 ?>

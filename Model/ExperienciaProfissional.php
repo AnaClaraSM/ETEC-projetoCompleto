@@ -129,7 +129,7 @@ Class ExperienciaProfissional {
     }
 
     //listarFormacoes
-    public function listaExperiencias ($idusuario)
+    public function listarExperiencias ($idusuario)
     {
         require_once 'ConexaoBD.php';
 

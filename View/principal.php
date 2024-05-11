@@ -150,7 +150,7 @@
             <!-- Cabeçalho -->
             <h2 class="w3-text-cyan">Formação Acadêmica</h2>
             <!-- Formulário -->
-            <form action="../Controller/FormacaoAcadController.php" method="post"
+            <form action="../Controller/Navegacao.php" method="post"
                 class="w3-row w3-light-grey w3-text-blue w3-margin" style="width:70%">
                 <div class="w3-row w3-center">
                     <div class="w3-col" style="width: 50%;">
@@ -213,14 +213,14 @@
                     <!-- PHP - Corpo da Tabela -->
                     <tbody>
                         <?php
-                        $fAcad = new FormacaoAcademicaController();
+                        $fAcad = new FormacaoAcadController();
                         $results = $fAcad->gerarLista(unserialize($_SESSION['Usuario'])->getID());
                         
                         if($results != null) {
                             while($row = $results->fetch_object()) {
                                 echo '<tr>';
-                                echo '<td style="width: 15%">'.$row->inicio.'</td>';
-                                echo '<td style="width: 15%">'.$row->fim.'</td>';
+                                echo '<td style="width: 10%">'.$row->inicio.'</td>';
+                                echo '<td style="width: 10%">'.$row->fim.'</td>';
                                 echo '<td style="width: 65%">'.$row->descrição.'</td>';
                                 echo '<td style="width: 5%"><form action="/Controller/Navegacao.php" method="post"><input type="hidden" name="idFA" value="'.$row->idformacaoacademica.'"><button name="btnExcluirFA" class="w3-button w3-block w3-blue w3-cell w3-round-large"><i class="fa-solid fa-user-times"></i></td></form>';
                                 echo '</tr>';
@@ -241,7 +241,7 @@
             <!-- Cabeçalho -->
             <h2 class="w3-text-cyan">Experiência Profissional</h2>
             <!-- Formulário -->
-            <form action="" method="post" class="w3-row w3-light-grey w3-text-blue w3-margin" style="width: 70%;">
+            <form action="../Controller/Navegacao.php" method="post" class="w3-row w3-light-grey w3-text-blue w3-margin" style="width: 70%;">
                 <!--  -->
                 <div class="w3-row w3-center">
                     <div class="w3-col" style="width: 50%;">
