@@ -181,6 +181,23 @@
 
             break;
 
+        //Adicionar em Outras Formações
+        case isset($_POST["btnAddOF"]):
+            //Inclui 
+            require_once "../Controller/OutrasFormacoesController.php";
+            //Inclui
+            include_once "../Model/Usuario.php";
+            //Cria nova instância - oFController
+            $oFController = new OutrasFormacoesController;
+            //Verifica resultado da inserção
+            if ($oFController->inserir(
+                date("Y-m-d", strtotime($_POST["txtInicioOF"])),
+                date("Y-m-d", strtotime($_POST["txtFimOF"])),
+                
+            ))
+            break;
+
+
 
     }
 ?>

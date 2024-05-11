@@ -117,8 +117,8 @@ Class OutrasFormacoes {
         }
     }
 
-    //listaFormacoes
-    public function listaFormacoes ($idusuario)
+    //listarFormacoes
+    public function listarOutrasFormacoes ($idusuario)
     {
         require_once 'ConexaoBD.php';
 

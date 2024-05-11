@@ -31,18 +31,26 @@
         //Recebe o id do registro da formação como parâmetro
         public function remover($id) {
             //Inclui a classe OutrasFormações da camada Model
-            
-            //Cria nova instância
+            require_once "../Model/OutrasFormacoes.php";            
+            //Cria nova instância da classe
+            $oForm = new OutrasFormacoes();
+            //Acessa o método excluirBD do objeto com o $id como parâmetro (exclusão registro conforme seu id) e armazena o resultado
+            $r = $oForm->excluirBD($id);
 
-            //Popula atributos
-
-            //Persiste dados e armazena resultado
-
-            //Retorna resultado
+            //Retorna resultado da exclusão
+            return $r;
         }
 
         //Método Gerar Lista
         //Recebe o id do usuário como parâmetro
+        public function gerarLista($idusuario) {
+            //Inclui a classe OutrasFormações da camada Model
+            require_once "../Model/OutrasFormacoes.php";
+            ///Cria uma nova instância da classe OutrasFormações
+            $oForm = new OutrasFormacoes();
+            //Acessa o método listarOutrasFormacoes com $idusuario como parâmetro (lista as experiências conforme o id do usuário), armazena e retorna os resultados da listagem
+            return $results = $oForm->listarOutrasFormacoes($idusuario);
+        }
     }
 
 ?>
