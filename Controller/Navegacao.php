@@ -183,21 +183,50 @@
 
         //Adicionar em Outras Formações
         case isset($_POST["btnAddOF"]):
-            //Inclui 
+            //Inclui a classe OutrasFormacoesController da camada Controller
             require_once "../Controller/OutrasFormacoesController.php";
-            //Inclui
+            //Inclui a classe Usuario da camada Model
             include_once "../Model/Usuario.php";
-            //Cria nova instância - oFController
+            //Cria uma nova instância da classe OutrasFormacoesController
             $oFController = new OutrasFormacoesController;
-            //Verifica resultado da inserção
+            //Verifica se o resultado da inserção (acesso ao método inserir do objeto com o id do usuário e os dados da formação postados através do formulário como parâmetros) foi positivo
             if ($oFController->inserir(
                 date("Y-m-d", strtotime($_POST["txtInicioOF"])),
                 date("Y-m-d", strtotime($_POST["txtFimOF"])),
-                
-            ))
+                $_POST["txtDescOF"],
+                unserialize($_SESSION["Usuario"])->getID()
+            ) != false
+            ) {
+                //Se sim, direciona para a página informaçãoInserida
+                include_once "../View/informacaoInserida.php";
+            }
+            else {
+                //Se não, direciona para a página operacaoNaoRealizada
+                include_once "../View/operacaoNaoRealizada.php";
+            }
+
             break;
 
+        //Remover em Outras Formações
+        case isset ($_POST["btnExcluirOF"]):
+            //Inclui a classe ExperienciaProfissionalController da camada Controller
+            require_once "../Controller/OutrasFormacoesController.php";
+            ///Inclui a classe Usuario da camada Model
+            include_once "../Model/Usuario.php";
+            //Cria uma nova instância da classe OutrasFormacoesController
+            $oFController = new OutrasFormacoesController();
 
+            //Verifica se o resultado da remoção (acesso ao método remover do objeto com o id do resgistro da formação como parâmetro) foi positivo
+            if ($oFController->remover($_POST["idOF"]) == true) {
+                //Se sim, direciona para a página informacaoExcluida
+                include_once "../View/informacaoExcluida.php";
+            }
+            else {
+                //Se não, direciona para a página operacaoNaoRealizada
+                include_once "../View/operacaoNaoRealizada.php";
+            }
+
+            break;
 
     }
 ?>
