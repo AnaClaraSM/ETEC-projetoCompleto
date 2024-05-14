@@ -157,6 +157,26 @@ Class Usuario{
             return FALSE;
         }
     }
+
+    //listaCadastrados
+    public function listaCadastrados() {
+        //Inclui Classe ConexoBD
+        require_once 'ConexaoBD.php';
+
+        //Cria nova instância do objeto da Classe ConexaoBD
+        $con = new ConexaoBD();
+        //Conexão com banco de dados
+        $conn = $con->conectar();
+        //Verifica resultado da conexão
+        if ($conn->connect_error) {
+            die("Connection failed: ". $conn->connect_error);
+        }
+        //Sentença sql -> recupera id e nome dos usuários -> lista todos os usuários
+        $sql = "SELECT idusuario, nome FROM usuario;";
+        $re = $conn->query($sql);
+        $conn->close();
+        return $re;
+    }
 }
 
 ?>

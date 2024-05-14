@@ -48,7 +48,7 @@
             return $this->senha;
         }
 
-        //Outros Métodos
+        // Métodos Específicos
 
         //carregarAdministrador
         public function carregarAdministrador($cpf) {
