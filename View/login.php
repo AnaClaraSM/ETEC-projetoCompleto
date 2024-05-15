@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- W3CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Ícones Font Awesome -->
@@ -18,7 +19,7 @@
         <h2 class="w3-center">Login</h2>
         <div class="w3-row w3-section">
             <div class="w3-col" style="width: 11%;">
-                <i class="w3-xxlarge fa fa-user"></i>
+                <i class="w3-xxlarge fa-solid fa-user"></i>
             </div>
             <div class="w3-rest">
                 <input class="w3-input w3-border w3-round-large" name="txtLogin" type="text" placeholder="Login CPF (ex.:  33333333333)">

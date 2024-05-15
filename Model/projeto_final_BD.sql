@@ -72,3 +72,21 @@ CREATE TABLE IF NOT EXISTS 'projeto_final'.'outrasformacoes' (
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
+
+-- Tabela 'projeto_final'.'administrador'
+CREATE TABLE IF NOT EXISTS `projeto_final`.`administrador` (
+    `idadministrador` INT(11) NOT NULL AUTO_INCREMENT,
+    `nome` VARCHAR(45) NULL DEFAULT NULL,
+    `cpf` VARCHAR(11) NOT NULL,
+    `senha` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`idadministrador`)
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = latin1;
+
+-- Inserção direta de um usuário administrador
+INSERT INTO `projeto_final`.`administrador` (`nome`, `cpf`, `senha`)
+VALUES ('Bia', '22222222222', 'bia123');
+
+-- Não há Primeiro Acesso para ADM's, e sim uma tabela pronta com usuários. Para realizar os testes, insira um administrador via SGBD.
