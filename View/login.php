@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <title>Enlatados Juarez</title>
+    <title>Login</title>
 </head>
 <body>
     <!-- Formulário de Login -->
@@ -44,7 +44,11 @@
             <div class="w3-half">
                 <button name="btnPrimeiroAcesso" class="w3-button w3-block w3-margin w3-blue w3-cell w3-round-large" style="width: 90%;">Primeiro Acesso?</button>
             </div>
-        </div>  
+            <!-- Botão de Login ADM -->
+            <div class="w3-center">
+                <button name="btnADM" class="w3-button w3-block w3-margin w3-blue w3-cell w3-round-large" style="width: 90%">Login como Administrador</button>
+            </div>
+        </div>
     </form>
 </body>
 </html>

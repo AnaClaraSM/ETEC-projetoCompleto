@@ -238,7 +238,9 @@
             //Cria uma nova instância da classe AdministradorController 
             $aController = new AdministradorController();
 
+            //Verifica se o resultado do login (acesso ao método login do objeto com o login e a senha do usuário postados através do formulário como parâmetros) foi positivo
             if($aController->login($_POST['txtLoginADM'], $_POST['txtSenhaADM'])) {
+                //Se sim, direciona para a página ADMPrincipal
                 include_once '../View/ADMPrincipal.php';
             }
             else {

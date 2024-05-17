@@ -23,7 +23,7 @@
 
             //Verifica se a senha informada como parâmetro confere com a senha do administrador encontrado para aquele cpf (recuperada pelo acesso ao método getSenha do objeto)
             if($administrador->getSenha() == $senha) {
-                //Se sim, serializa o objeto ... sessão
+                //Se sim, serializa o objeto e o aloca na sessão
                 $_SESSION['Administrador'] = serialize($administrador);
                 return true;
             }
