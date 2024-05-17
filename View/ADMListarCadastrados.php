@@ -41,6 +41,7 @@
                         <th>Nome</th>
                     </tr>
                 </thead>
+                
                 <!-- PHP - Corpo da Tabela -->
                 <tbody>
                     <?php
@@ -51,6 +52,7 @@
                                 echo '<tr>';
                                 echo '<td style="width: 1%;">'.$row->idusuario.'</td>';
                                 echo '<td style="width: 50%;">'.$row->nome.'</td>';
+                                // echo '<td style:width="5%;"><form action="/Controller/Navegacao.php" method="post"><input type="hidden" name="idusuario" value="'.idusuario.'"><button name="btnVisualizarCadastro" class="w3-button w3-block w3-blue w3-cell w3-round-large"><i class="fa-solid fa-eye"></i></button></input></form></td>';
                                 echo '</tr>';
                             }
                         }

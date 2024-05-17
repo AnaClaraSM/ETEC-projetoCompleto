@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- W3CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Visualizar Cadastro</title>
+</head>
+<body class="w3-light-grey">
+    <!-- PHP -->
+    <!-- Fim PHP -->
+
+    <!-- Conteúdo Principal -->
+    <div class="w3-padding-large" id="main">
+
+        <!-- Cabeçalho -->
+        <header class="">
+
+        </header>
+        <!-- Fim Cabeçalho -->
+    </div>
+    <!-- Conteúdo Principal -->
+</body>
+</html>
