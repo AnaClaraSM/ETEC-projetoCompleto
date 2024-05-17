@@ -12,22 +12,22 @@
 </head>
 <body class="w3-light-grey">
     <!-- PHP -->
-        <?php
-            //Inclui a classe Usuario da camada Model
-            include_once '../Model/Usuario.php';
-            //Inclui a classe UsuarioController da camada Controller
-            include_once '../Controller/UsuarioController.php';
+    <?php
+        //Inclui a classe Usuario da camada Model
+        include_once '../Model/Usuario.php';
+        //Inclui a classe UsuarioController da camada Controller
+        include_once '../Controller/UsuarioController.php';
 
-            //Se a sessão não tiver sido iniciada
-            if (!isset($_SESSION)) {
-                //Cria sessão
-                session_start();
-            }
-        ?>    
+        //Se a sessão não tiver sido iniciada
+        if (!isset($_SESSION)) {
+            //Cria sessão
+            session_start();
+        }
+    ?>    
     <!-- Fim PHP -->
 
     <!-- Cabeçalho -->
-    <header class="w3-container w3-padding w3-center">
+    <header class="w3-container w3-padding-32 w3-center">
         <h1 class="w3-text-white w3-panel w3-cyan w3-round-large">Lista de Usuários Cadastrados no Sistema</h1>
     </header>
     <!-- Fim Cabeçalho -->

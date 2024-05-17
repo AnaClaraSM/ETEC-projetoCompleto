@@ -32,8 +32,16 @@
             }
         }
 
-        //Método y
+        //Método gerarLista
+        public function gerarLista() {
+            //Inclui a classe Administrador da camada Model
+            require_once '../Model/Administrador.php';
 
-        //Método z
+            //Cria nova instância da classe Administrador 
+            $a = new Administrador();
+
+            //Acessa o método listaAdministradores do objeto, armazena os resultados e retorna - lista todos os administradores através do método específico
+            return $results = $a->listaAdministradores();
+        }
     }
 ?>
