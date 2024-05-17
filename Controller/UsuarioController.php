@@ -12,7 +12,7 @@ class UsuarioController {
     //Método inserir
     public function inserir($nome, $cpf, $email, $senha) {
         //Inclui a classe Usuario da camada Model
-        require_once "../Model/Usuario.php"
+        require_once "../Model/Usuario.php";
         //Cria uma nova instância da classe Usuario e popula seus atributos
         $usuario = new Usuario();
         $usuario->setNome($nome);
@@ -46,10 +46,10 @@ class UsuarioController {
         return $r;
     }
 
-    //Método Login
+    //Método login
     public function login($cpf, $senha) {
         //Inclui a classe Usuario da camada Model
-        require_once '../Model/Usuario.php'
+        require_once '../Model/Usuario.php';
         //Cria uma instância da classe Usuario e popula seus atributos
         $usuario = new Usuario();
         //
@@ -63,6 +63,16 @@ class UsuarioController {
         else {
             return false;
         }
+    }
+
+    //Método gerarLista
+    public function gerarLista() {
+
+        require_once '../Model/Usuario.php';
+
+        $u = new Usuario();
+
+        return $results = $u->listaCadastrados();
     }
 }
 

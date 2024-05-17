@@ -229,8 +229,15 @@
             break;
 
         //Módulo Administrativo
+        
+        //ADM Login (acesso à página de login administrativo)
+        case isset($_POST['btnADM']):
+            //Direciona para a página de login administrativo
+            include_once '../View/ADMLogin.php';
 
-        //ADM Login
+            break;
+
+        //ADM Login (submissão)
         case isset($_POST['btnLoginADM']):
             //Inclui a classe AdministradorController da camada Controller
             require_once '../Controller/AdministradorController.php';
@@ -247,5 +254,20 @@
             }
 
             break;
+
+        //Listar Cadastrados
+        case isset($_POST['btnListarCadastrados']):
+            //Direciona para a página ADMListarCadastrados
+            include_once '../View/ADMListarCadastrados.php';
+
+            break;
+
+        //Voltar
+        case isset($_POST['btnVoltar']):
+            //Direciona à página ADMPrincipal
+            include_once '../View/ADMPrincipal.php';
+
+            break;
+
     }
 ?>

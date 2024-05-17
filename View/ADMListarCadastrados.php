@@ -13,6 +13,11 @@
 <body class="w3-light-grey">
     <!-- PHP -->
         <?php
+            //Inclui a classe Usuario da camada Model
+            include_once '../Model/Usuario.php';
+            //Inclui a classe UsuarioController da camada Controller
+            include_once '../Controller/UsuarioController.php';
+
             //Se a sessão não tiver sido iniciada
             if (!isset($_SESSION)) {
                 //Cria sessão
@@ -36,6 +41,22 @@
                         <th>Nome</th>
                     </tr>
                 </thead>
+                <!-- PHP - Corpo da Tabela -->
+                <tbody>
+                    <?php
+                        $usuario = new UsuarioController();
+                        $results = $usuario->gerarLista();
+                        if($results != null) {
+                            while($row = $results->fetch_object()) {
+                                echo '<tr>';
+                                echo '<td style="width: 1%;">'.$row->idusuario.'</td>';
+                                echo '<td style="width: 50%;">'.$row->nome.'</td>';
+                                echo '</tr>';
+                            }
+                        }
+                    ?>
+                </tbody>
+                <!-- Fim PHP - Corpo da Tabela -->
             </table>
         </div>
     </div>
