@@ -228,5 +228,22 @@
 
             break;
 
+        //Módulo Administrativo
+
+        //ADM Login
+        case isset($_POST['btnLoginADM']):
+            //Inclui a classe AdministradorController da camada Controller
+            require_once '../Controller/AdministradorController.php';
+
+            //Cria uma nova instância da classe AdministradorController 
+            $aController = new AdministradorController();
+
+            if($aController->login($_POST['txtLoginADM'], $_POST['txtSenhaADM'])) {
+                include_once '../View/ADMPrincipal.php';
+            }
+            else {
+            }
+
+            break;
     }
 ?>
