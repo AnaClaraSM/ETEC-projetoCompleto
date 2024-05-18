@@ -221,7 +221,7 @@
                                 echo '<tr>';
                                 echo '<td style="width: 10%">'.$row->inicio.'</td>';
                                 echo '<td style="width: 10%">'.$row->fim.'</td>';
-                                echo '<td style="width: 65%">'.$row->descrição.'</td>';
+                                echo '<td style="width: 65%">'.$row->descricao.'</td>';
                                 echo '<td style="width: 5%"><form action="/Controller/Navegacao.php" method="post"><input type="hidden" name="idFA" value="'.$row->idformacaoacademica.'"><button name="btnExcluirFA" class="w3-button w3-block w3-blue w3-cell w3-round-large"><i class="fa-solid fa-user-times"></i></td></form>';
                                 echo '</tr>';
                                 }
@@ -323,7 +323,7 @@
                                     echo '<td style="width: 10%">'.$row->inicio.'</td>';
                                     echo '<td style="width: 10%">'.$row->fim.'</td>';
                                     echo '<td style="width: 10%">'.$row->empresa.'</td>';
-                                    echo '<td style="width: 65%">'.$row->descrição.'</td>';
+                                    echo '<td style="width: 65%">'.$row->descricao.'</td>';
                                     echo '<td style="width: 5%"><form action="/Controller/Navegacao.php" method="post"><input type="hidden" name="idEP" value="'.$row->idexperienciaprofissional.'"><button name="btnExcluirEP" class="w3-button w3-block w3-blue w3-cell w3-round-large"><i class="fa-solid fa-user-times"></i></td></form>';
                                     echo '</tr>';
                                 }
