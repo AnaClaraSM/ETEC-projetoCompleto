@@ -49,7 +49,7 @@
             <button name="btnListarCadastrados" class="w3-button w3-margin w3-blue w3-cell w3-round-large">
                 <br>
                 <i class="fa-solid fa-users w3-xxlarge"></i>
-                <p class="w3-xlarge">Usuários Cadastrados</p>                
+                <p class="w3-xlarge">Usuários Cadastrados</p> 
             </button>
             <!-- Fim Listar Cadastrados -->
         </form>
