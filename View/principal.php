@@ -156,7 +156,7 @@
                     <div class="w3-col" style="width: 50%;">
                         Data Inicial
                     </div>
-                    <div class="w3-rest"><!--RES ???-->
+                    <div class="w3-rest">
                         Data Final
                     </div>
                 </div>

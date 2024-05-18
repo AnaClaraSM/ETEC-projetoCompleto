@@ -262,12 +262,23 @@
 
             break;
 
-        //Voltar
-        case isset($_POST['btnVoltar']):
+        //Voltar Principal
+        case isset($_POST['btnVoltarPrincipalADM']):
             //Direciona à página ADMPrincipal
             include_once '../View/ADMPrincipal.php';
 
             break;
 
+        //Visualizar Cadastro
+        case isset($_POST['btnVisualizarCadastro']):
+            include_once '../View/ADMVisualizarCadastro.php';
+
+            break;
+
+        //Voltar a Cadastrados
+        case isset($_POST['btnVoltarCadastrados']):
+            include_once '../View/ADMListarCadastrados.php';
+
+            break;
     }
 ?>
