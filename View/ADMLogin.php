@@ -15,8 +15,9 @@
     <form action="../Controller/Navegacao.php" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin w3-display-middle" style="width: 30%;">
         <input type="hidden" name="nome_form" value="frmLoginADM">
 
-        <!-- Login/CPF -->
+        
         <h2 class="w3-center">Administrador</h2>
+        <!-- Login/CPF -->
         <div class="w3-row w3-section">
             <div class="w3-col" style="width: 11%;">
                 <i class="w3-xxlarge fa-solid fa-user-tie"></i>
@@ -25,6 +26,7 @@
                 <input class="w3-input w3-border w3-round-large" name="txtLoginADM" type="text" placeholder="Login CPF (ex.: 33333333333)">
             </div>
         </div>
+        <!-- Senha -->
         <div class="w3-row w3-section">
             <div class="w3-col" style="width: 11%;">
                 <i class="w3-xxlarge fa-solid fa-lock"></i>
@@ -33,15 +35,16 @@
                 <input class="w3-input w3-border w3-round-large" name="txtSenhaADM" type="password" placeholder="Senha">
             </div>
         </div>
+        <!-- Botão de Login -->
         <div class="w3-row w3-section">
             <div>
                 <button name="btnLoginADM" class="w3-button w3-block w3-margin w3-blue w3-cell w3-round-large" style="width: 90%;">Entrar</button>
             </div>
         </div>
 
-        <!-- Senha -->
+        
 
-        <!-- Botão de Login -->
+        
     </form>
 </body>
 </html>
