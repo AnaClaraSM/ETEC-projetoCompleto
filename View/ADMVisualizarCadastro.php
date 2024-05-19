@@ -27,6 +27,25 @@
             //Cria sessão
             session_start();
         }
+
+        //Dados do Usuário
+        //Cria nova instância da classe Usuario
+        $usuarioCadastrado = new Usuario();
+        //Obtém o nome do usuário clicado, acessando o método obterDados do objeto com o id do usuário (postado através do formulário da página anterior) como parâmetro
+        $results = $usuarioCadastrado->obterDados($_POST['idusuario']);
+        //Se 
+        if ($results != null) {
+            //Se o resultado não é nulo
+            while ($row = $results->fetch_object()) {
+                //Armazena os dados em variáveis separadas
+                $id = $row->idusuario;
+                $nome = $row->nome;
+                $cpf = $row->cpf;
+                $dataNascimento = $row->datanascimento;
+                $email = $row->email;
+            }
+        }
+
     ?>
     <!-- Fim PHP -->
 
@@ -37,7 +56,7 @@
         <header class="w3-container w3-padding-32 w3-center">
             <h1 class="w3-text-white w3-panel w3-cyan w3-round-large">
                 <!-- Obtém o nome do usuário armazenado na sessão, acessando o método getNome da classe Usuario -->
-                <?php echo unserialize($_SESSION['Usuario'])->getNome();?> - Currículo
+                <?php echo $nome;?> - Currículo
             </h1>
         </header>
         <!-- Fim Cabeçalho -->
@@ -50,19 +69,19 @@
             <div>
                 <div class="w3-row w3-cyan w3-panel w3-padding w3-round-large w3-text-white w3-xlarge">
                     <!-- Obtém o nome do usuário armazenado na sessão, acessando o método getNome da classe Usuario -->
-                    NOME: <?php echo unserialize($_SESSION['Usuario'])->getNome();?>
+                    NOME: <?php echo $nome;?>
                 </div>
                 <div class="w3-row w3-cyan w3-panel w3-padding w3-round-large w3-text-white w3-xlarge">
                     <!-- Obtém o cpf do usuário armazenado na sessão, acessando o método getCPF da classe Usuario -->
-                    CPF: <?php echo unserialize($_SESSION['Usuario'])->getCPF();?>
+                    CPF: <?php echo $cpf;?>
                 </div>
                 <div class="w3-row w3-cyan w3-panel w3-padding w3-round-large w3-text-white w3-xlarge">
                     <!-- Obtém o email do usuário armazenado na sessão, acessando o método getEmail da classe Usuario -->
-                    EMAIL: <?php echo unserialize($_SESSION['Usuario'])->getEmail();?>
+                    EMAIL: <?php echo $email;?>
                 </div>
                 <div class="w3-row w3-cyan w3-panel w3-padding w3-round-large w3-text-white w3-xlarge">
                     <!-- Obtém a data de nascimento do usuário armazenado na sessão, acessando o método getDataNascimento da classe Usuario -->
-                    DATA DE NASCIMENTO: <?php echo unserialize($_SESSION['Usuario'])->getDataNascimento();?>
+                    DATA DE NASCIMENTO: <?php echo $dataNascimento;?>
                 </div>
             </div>
         </div>
@@ -87,8 +106,8 @@
                         <?php
                             //Cria nova instância da classe FormacaoAcadController
                             $fAcad = new FormacaoAcadController();
-                            //Acessa o método gerarLista do objeto (de acordo com o id do usuário (id como parametro), obtido na sessão) e armazena os resultados/registros
-                            $results = $fAcad->gerarLista(unserialize($_SESSION['Usuario'])->getID());
+                            //Acessa o método gerarLista do objeto (de acordo com o id do usuário (id como parametro)) e armazena os resultados/registros
+                            $results = $fAcad->gerarLista($id);
 
                             //Se o resultado não é nulo (se houve retorno de informação)
                             if ($results != null) {
@@ -131,7 +150,7 @@
                             //Cria nova instância da classe ExperienciaProfiossionalController
                             $ePro = new ExperienciaProfissionalController();
                             //Acessa o método gerarLista do objeto (de acordo com o id do usuário (id como parametro), obtido na sessão) e armazena os resultados/registros
-                            $results = $ePro->gerarLista(unserialize($_SESSION['Usuario'])->getID());
+                            $results = $ePro->gerarLista($id);
 
                             //Se o resultado não é nulo (se houve retorno de informação)
                             if ($results != null) {
@@ -174,7 +193,7 @@
                             //Cria nova instância da classe OutrasFormacoesController
                             $oForm = new OutrasFormacoesController();
                             //Acessa o método gerarLista do objeto (de acordo com o id do usuário (id como parametro), obtido na sessão) e armazena os resultados/registros
-                            $results = $oForm->gerarLista(unserialize($_SESSION['Usuario'])->getID());
+                            $results = $oForm->gerarLista($id);
 
                             //Se o resultado não é nulo (se houve retorno de informação)
                             if ($results != null) {

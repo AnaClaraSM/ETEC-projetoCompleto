@@ -177,6 +177,31 @@ Class Usuario{
         $conn->close();
         return $re;
     }
+
+    //obterDados
+    //Recupera os dados de um usuário específico
+    public function obterDados($id) {
+        //Inclui a classe ConexaoBD
+        require_once 'ConexaoBD.php';
+
+        //Cria nova instância do objeto ConexaoBD
+        $con = new ConexaoBD();
+        //Conexão com o banco de dados (acesso ao método conectar do objeto) e armazenamento do resultado
+        $conn = $con->conectar();
+        //Verifica se houve erro na conexão
+        if ($conn->connect_error) {
+            die("Connection failed: ".$conn->connect_error);
+        }
+
+        //Sentença sql -> recupera todos os dados do usuário cujo id é igual ao informado (passado como parâmetro)
+        $sql = "SELECT * FROM usuario WHERE idusuario = ".$id.";";
+        //Na conexão com o banco de dados, acessa o método de consulta com a sentença sql como parâmetro - Executa a sentença/consulta e armazena o resultado retornado
+        $re = $conn->query($sql);
+        //Fecha a conexão
+        $conn->close();
+        //Retorna o resultado da consulta (os dados encontrados)
+        return $re;
+    }
 }
 
 ?>

@@ -53,6 +53,7 @@
                                 echo '<tr>';
                                 echo '<td style="width: 5%;">'.$row->idusuario.'</td>';
                                 echo '<td style="width: 90%;">'.$row->nome.'</td>';
+                                //Esse formulário enviará (post) o id do usuário (value) quando clicado (button)
                                 echo '<td style:width="5%;"><form action="../Controller/Navegacao.php" method="post"><input type="hidden" name="idUser" value="'.$row->idusuario.'"><button name="btnVisualizarCadastro" class="w3-button w3-block w3-blue w3-cell w3-round-large"><i class="fa-solid fa-eye"></i></button></input></form></td>';
                                 echo '</tr>';
                             }
